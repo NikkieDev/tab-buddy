@@ -1,0 +1,21 @@
+{
+	"manifest_version": 3,
+	"name": "Tab Buddy",
+	"version": "1.0",
+	"description": "User Pre-set tabs let you switch between environments with a single button",
+	"author": "KuByX",
+	"permissions": ["activeTab", "storage"],
+	"background": {
+		"service_worker": "worker.js",
+		"events": ["onInstalled", "onStartup"]
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://tab-buddy.kubyx.nl/*/installed.html", "*://localhost/*/installed.html"],
+			"js": ["content-scripts/installed.js"]
+		}
+	],
+	"externally_connectable": {
+		"matches": ["https://tab-buddy.kubyx.nl/*"]
+	}
+}
