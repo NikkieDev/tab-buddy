@@ -1,10 +1,14 @@
 {
 	"manifest_version": 3,
-	"name": "Tab Buddy",
-	"version": "1.0",
+	"name": "Tab Buddy BETA",
+	"version": "0.0.1",
 	"description": "User Pre-set tabs let you switch between environments with a single button",
 	"author": "KuByX",
 	"permissions": ["activeTab", "storage"],
+	"action": {
+		"default_title": "Tab Buddy",
+		"default_popup": "ui/views/main.html"
+	},
 	"background": {
 		"service_worker": "worker.js",
 		"events": ["onInstalled", "onStartup"]
@@ -12,11 +16,15 @@
 	"content_scripts": [
 		{
 			"matches": ["https://tab-buddy.kubyx.nl/*/installed.html"],
-			"js": ["content-scripts/installed.js"]
+			"js": ["content-scripts/selfpages/installed.js"]
 		},
 		{
 			"matches": ["*://tab-buddy.kubyx.nl/*/updated.html"],
-			"js": ["content-scripts/updated.js"]
+			"js": ["content-scripts/selfpages/updated.js"]
+		},
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content-scripts/modules/main.js"]
 		}
 	],
 	"web_accessible_resources": [

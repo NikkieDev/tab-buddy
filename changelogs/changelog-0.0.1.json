@@ -2,5 +2,8 @@
     "Extension": [
         "Created installed page",
         "Created updated page"
+    ],
+    "UI": [
+        "Created standard layout"
     ]
 }

@@ -1,0 +1,9 @@
+select.select {
+    border: 0;
+    border-bottom: 1px solid white;
+    padding-bottom: 0.66rem;
+    color: #ffc107;
+    width: 80%;
+    margin: 0.5em;
+    background-color: transparent;
+}
