@@ -2,10 +2,9 @@ class Worker {
     version = null;
 
     static async setVersion(isNew = false) {
-        await fetch("./manifest.json", { method: "GET" }).then(response => response.json())
-        .then(response => this.version = response["version"]);
+        this.version = await chrome.runtime.getManifest()["version"];
         
-        isNew ? await chrome.storage.local.set({ newVersion: this.version })
+        isNew ? await chrome.storage.local.set({ version: this.version })
         : await chrome.storage.local.set({ currentVersion: this.version })
     }
 }

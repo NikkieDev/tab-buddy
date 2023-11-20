@@ -11,11 +11,18 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["https://tab-buddy.kubyx.nl/*/installed.html", "*://localhost/*/installed.html"],
+			"matches": ["https://tab-buddy.kubyx.nl/*/installed.html"],
 			"js": ["content-scripts/installed.js"]
+		},
+		{
+			"matches": ["*://tab-buddy.kubyx.nl/*/updated.html"],
+			"js": ["content-scripts/updated.js"]
 		}
 	],
-	"externally_connectable": {
-		"matches": ["https://tab-buddy.kubyx.nl/*"]
-	}
+	"web_accessible_resources": [
+		{
+			"matches": ["<all_urls>"],
+			"resources": ["../changelogs/changelog-*.json"]
+		}
+	]
 }
